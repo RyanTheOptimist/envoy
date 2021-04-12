@@ -416,14 +416,14 @@ envoy_cc_test(
     ],
 )
 
-# TODO(alyssawilk): The conn pool grid should work correctly without H3. Circle back and figure
+# TODO(alyssawilk): The connectivity grid should work correctly without H3. Circle back and figure
 # out the right way of handling the lack of H3 in the build.
 envoy_cc_test(
-    name = "conn_pool_grid_test",
-    srcs = envoy_select_enable_http3(["conn_pool_grid_test.cc"]),
+    name = "connectivity_grid_test",
+    srcs = envoy_select_enable_http3(["connectivity_grid_test.cc"]),
     deps = envoy_select_enable_http3([
         ":common_lib",
-        "//source/common/http:conn_pool_grid",
+        "//source/common/http:connectivity_grid",
         "//test/common/upstream:utility_lib",
         "//test/mocks:common_lib",
         "//test/mocks/buffer:buffer_mocks",

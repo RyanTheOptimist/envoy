@@ -1,4 +1,4 @@
-#include "common/http/conn_pool_grid.h"
+#include "common/http/connectivity_grid.h"
 
 #include "common/http/http3/conn_pool.h"
 #include "common/http/mixed_conn_pool.h"

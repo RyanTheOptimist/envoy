@@ -150,9 +150,9 @@ envoy_cc_library(
 )
 
 envoy_cc_library(
-    name = "conn_pool_grid",
-    srcs = ["conn_pool_grid.cc"],
-    hdrs = ["conn_pool_grid.h"],
+    name = "connectivity_grid",
+    srcs = ["connectivity_grid.cc"],
+    hdrs = ["connectivity_grid.h"],
     deps = [
         ":mixed_conn_pool",
         "//source/common/http/http3:conn_pool_lib",

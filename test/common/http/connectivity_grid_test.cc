@@ -1,4 +1,4 @@
-#include "common/http/conn_pool_grid.h"
+#include "common/http/connectivity_grid.h"
 
 #include "test/common/http/common.h"
 #include "test/common/upstream/utility.h"
