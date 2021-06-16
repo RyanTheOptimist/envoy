@@ -21,9 +21,7 @@
 
 #include "absl/base/call_once.h"
 
-#ifdef ENVOY_ENABLE_QUIC
 #include "source/common/quic/quic_stat_names.h"
-#endif
 
 namespace Envoy {
 namespace Server {
@@ -427,9 +425,7 @@ private:
   // callback during the destroy of ListenerImpl.
   Init::WatcherImpl local_init_watcher_;
 
-#ifdef ENVOY_ENABLE_QUIC
   Quic::QuicStatNames& quic_stat_names_;
-#endif
 
   // to access ListenerManagerImpl::factory_.
   friend class ListenerFilterChainFactoryBuilder;
