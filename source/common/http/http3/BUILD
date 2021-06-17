@@ -36,3 +36,15 @@ envoy_cc_library(
         "//source/common/common:thread_lib",
     ],
 )
+
+envoy_cc_library(
+    name = "codec_lib",
+    hdrs = ["codec_impl.h"],
+    deps = [
+        "//envoy/stats:stats_interface",
+        "//envoy/stats:stats_macros",
+        "//source/common/common:thread_lib",
+    ] + envoy_select_enable_http3([
+        "//source/common/quic:codec_lib",
+    ]),
+)

@@ -78,10 +78,10 @@ Stats::StatName QuicStatNames::resetStreamErrorStatName(quic::QuicRstStreamError
       }));
 }
 
+fin
 
 #else
 QuicStatNames::QuicStatNames(Stats::SymbolTable& /*symbol_table*/) {}
-
 
 #endif
 

@@ -24,9 +24,7 @@
 #include "source/common/network/utility.h"
 #include "source/common/protobuf/utility.h"
 
-#if defined(ENVOY_ENABLE_QUIC)
 #include "source/common/quic/quic_transport_socket_factory.h"
-#endif
 
 #include "source/server/api_listener_impl.h"
 #include "source/server/configuration_impl.h"
@@ -957,7 +955,6 @@ Network::DrainableFilterChainSharedPtr ListenerFilterChainFactoryBuilder::buildF
   const bool is_quic =
       listener_.udpListenerConfig().has_value() &&
       !listener_.udpListenerConfig()->listenerFactory().isTransportConnectionless();
-#if defined(ENVOY_ENABLE_QUIC)
   if (is_quic &&
       dynamic_cast<Quic::QuicServerTransportSocketConfigFactory*>(&config_factory) == nullptr) {
     throw EnvoyException(fmt::format("error building filter chain for quic listener: wrong "
@@ -965,11 +962,6 @@ Network::DrainableFilterChainSharedPtr ListenerFilterChainFactoryBuilder::buildF
                                      "{}. \nUse QuicDownstreamTransport instead.",
                                      transport_socket.DebugString()));
   }
-#else
-  // When QUIC is compiled out it should not be possible to configure either the QUIC transport
-  // socket or the QUIC listener and get to this point.
-  ASSERT(!is_quic);
-#endif
   ProtobufTypes::MessagePtr message =
       Config::Utility::translateToFactoryConfig(transport_socket, validator_, config_factory);
 

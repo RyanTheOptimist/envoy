@@ -10,12 +10,9 @@
 #include "source/common/http/exception.h"
 #include "source/common/http/http1/codec_impl.h"
 #include "source/common/http/http2/codec_impl.h"
+#include "source/common/http/http3/codec_impl.h"
 #include "source/common/http/status.h"
 #include "source/common/http/utility.h"
-
-#ifdef ENVOY_ENABLE_QUIC
-#include "source/common/quic/codec_impl.h"
-#endif
 
 namespace Envoy {
 namespace Http {
