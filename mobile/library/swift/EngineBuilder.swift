@@ -437,9 +437,9 @@ open class EngineBuilder: NSObject {
 
   /// Specify whether to enforce TLS trust chain verification for secure sockets.
   ///
-  /// - parameter enforceTrustChainVerification: whether to enforce trust chain verification.
+  /// - Parameter enforceTrustChainVerification: whether to enforce trust chain verification.
   ///
-  /// - returns: This builder.
+  /// - Returns: This builder.
   @discardableResult
   public func enforceTrustChainVerification(_ enforceTrustChainVerification: Bool) -> Self {
     self.enforceTrustChainVerification = enforceTrustChainVerification
